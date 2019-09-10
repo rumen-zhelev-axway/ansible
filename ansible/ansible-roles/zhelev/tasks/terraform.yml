@@ -1,0 +1,16 @@
+---
+---
+- name: Download terraform archive package and install it 
+  get_url:
+    url: "https://releases.hashicorp.com/terraform/0.12.8/terraform_0.12.8_linux_amd64.zip"
+    dest: "/tmp/terraform_0.12.8_linux_amd64.zip"
+    mode: 0440
+
+- name: Extract terraform 
+  unarchive: 
+    src: "/tmp/terraform_0.12.8_linux_amd64.zip"
+    dest: ~/bin 
+
+- name: Check Terraform version
+  command: "echo Checking terraform version ~/bin/terraform -v"
+ 
